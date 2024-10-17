@@ -29,7 +29,19 @@ document.getElementById("nextButton").addEventListener("click", function () {
 });
 
 // Gift button transition to third slide
-document.getElementById("giftButton").addEventListener("click", function () {
+document.getElementById("giftButton").addEventListener("click", function (e) {
+   // Sparkle explosion effect
+for (let i = 0; i < 30; i++) {
+    let sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.style.left = e.clientX + (Math.random() * 200 - 100) + "px"; // Increase range
+    sparkle.style.top = e.clientY + (Math.random() * 200 - 100) + "px";   // Increase range
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 800);  // Remove sparkle after animation
+}
+
+
+    // Slide transition code
     document.getElementById("slide2").classList.add("fade-out");
 
     setTimeout(() => {
@@ -87,4 +99,38 @@ document.getElementById("nextButton").addEventListener("click", function () {
         document.getElementById("slide2").classList.remove("fade-out");
         document.getElementById("slide2").classList.add("fade-in");
     }, 500);
+});
+
+// Function to create heart rain
+function createHeartRain() {
+    const heart = document.createElement("div");  // Create a heart
+    heart.classList.add("heart");  // Add heart CSS class
+    heart.textContent = "❤️";  // Use the heart emoji
+
+    // Position the heart randomly on the screen's width
+    heart.style.left = Math.random() * 100 + "vw";
+
+    // Add the heart to the document
+    document.body.appendChild(heart);
+
+    // Remove the heart after its fall (3s)
+    setTimeout(() => heart.remove(), 3000);
+}
+
+// Trigger heart rain when the last slide appears
+document.getElementById("giftButton").addEventListener("click", function () {
+    // Start creating hearts at an interval (every 300ms)
+    setInterval(createHeartRain, 300);
+});
+
+
+// Your other JavaScript event listeners here...
+
+// Song auto-play when the site loads
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("backgroundMusic");
+    audio.volume = 0.3;  // Set volume to 50%
+    audio.play().catch(error => {
+        console.log("Audio couldn't play automatically due to user interaction requirements.");
+    });
 });
