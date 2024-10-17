@@ -1,9 +1,14 @@
-//
 document.addEventListener("DOMContentLoaded", () => {
     const audio = document.getElementById("backgroundMusic");
 
-    // Attempt to play audio after a user interaction (like clicking the "Next" button)
-    document.getElementById("nextButton").addEventListener("click", function() {
+    // Attempt to play the audio when the site loads
+    audio.play().catch(error => {
+        console.error("Error playing audio:", error);
+    });
+
+    const nextButton = document.getElementById("nextButton");
+    nextButton.addEventListener("click", function() {
+        // You can choose to play the audio again or control other functionalities here
         audio.play().catch(error => {
             console.error("Error playing audio:", error);
         });
