@@ -1,0 +1,246 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background-color: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hide the slides initially */
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#slide1, #slide2, #slide3 {
+    display: none;
+}
+
+#slide1 {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Gift Button Styles */
+.gift-button {
+    width: 150px;
+    height: 150px;
+    background: url('closed-gift.png') no-repeat center;
+    background-size: cover;
+    transition: background 0.5s ease;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.gift-button:hover {
+    background: url('open-gift.png') no-repeat center;
+    background-size: cover;
+}
+
+/* Other styles remain unchanged */
+/* Slide Transition Animations */
+@keyframes fadeIn {
+    from { opacity: 0; visibility: hidden; }
+    to { opacity: 1; visibility: visible; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; visibility: visible; }
+    to { opacity: 0; visibility: hidden; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+/* Back Arrow Button Styles (Simple Circular Design) */
+#backArrowButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #d81b60;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Back Arrow Icon inside the Button */
+#backArrowButton::before {
+    content: "←"; /* Simple left arrow symbol */
+    font-size: 1.5em;
+    color: white;
+}
+
+/* Hover and Active States */
+#backArrowButton:hover {
+    background-color: #f06292;
+    transform: scale(1.1);
+}
+
+#backArrowButton:active {
+    transform: scale(0.9);
+}
+
+/* Collage Photo Styles */
+.photo-collage {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    pointer-events: none;
+}
+
+.photo {
+    position: absolute;
+    width: 180px; /* Increase the size */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transform: rotate(-5deg);
+    background-color: white; /* Polaroid frame background */
+    padding: 10px; /* Create the white frame */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Polaroid shadow effect */
+    border: 2px solid white; /* Polaroid frame */
+}
+
+/* Polaroid-style extra bottom padding */
+.photo::before {
+    content: "";
+    display: block;
+    padding-bottom: 30px; /* Extra padding at the bottom to mimic Polaroid style */
+}
+
+/* Positioning Photos Around the Letter */
+.photo1 { top: 0; left: 0; transform: rotate(-10deg); }
+.photo2 { top: 0; right: 0; transform: rotate(8deg); }
+.photo3 { bottom: 0; left: 0; transform: rotate(12deg); }
+.photo4 { bottom: 0; right: 0; transform: rotate(-8deg); }
+
+/* Curved Line Effect */
+.photo-collage::before, 
+.photo-collage::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgba(240, 98, 146, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.photo-collage::before {
+    top: -10px;
+    left: -10px;
+    transform: rotate(15deg);
+}
+
+.photo-collage::after {
+    bottom: -10px;
+    right: -10px;
+    transform: rotate(-15deg);
+}
+
+
+/* Slide Styling */
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hide the second slide initially */
+#slide1 {
+    display: flex;
+}
+#slide2 {
+    display: none;
+}
+
+/* Countdown and Button Styling */
+#countdown {
+    font-size: 2em;
+    margin: 20px 0;
+}
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #f06292;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+    transition: background-color 0.3s;
+}
+button:enabled {
+    cursor: pointer;
+    background-color: #d81b60;
+}
+
+/* Letter Area Styling */
+.letter-container {
+    width: 80%;
+    max-width: 800px;  /* Make it larger and more longitudinal */
+    padding: 30px;
+    border: 5px dashed #f06292;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.letter-content {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Subtle Background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://tinyurl.com/ycxmc5em'); /* Stars/Hearts */
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.1;
+    pointer-events: none;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="slide" id="slide1">
+        <h1>Hi Cutie! ❤️</h1>
+        <p>Can't wait to celebrate your birthday!</p>
+        <div id="countdown"></div>
+	<button id="nextButton" disabled>Next</button>
+    </div>
+
+    <!-- Letter Page -->
+    <div class="slide" id="slide2">
+        <div class="photo-collage">
+            <img src="photo1.jpg" alt="Memory 1" class="photo photo1">
+            <img src="photo2.jpg" alt="Memory 2" class="photo photo2">
+            <img src="photo3.jpg" alt="Memory 3" class="photo photo3">
+            <img src="photo4.jpg" alt="Memory 4" class="photo photo4">
+        </div>
+
+        <div class="letter-container">
+            <h2>To My Love 💌</h2>
+            <p class="letter-content">
+                Dear Iffah,<br><br>
+                I just want you to know how much you mean to me. 
+                Every day with you feels like a gift, and I am beyond lucky to have you in my life. 
+                I hope today is filled with love, laughter, and joy, just like the happiness you bring me.<br><br>
+                Wishing you the happiest birthday ever! 🎉<br><br>
+                With all my love,<br>Your Baby Boy :3
+            </p>
+        </div>
+
+        <!-- Gift Button -->
+        <div class="gift-button" id="giftButton"></div>
+    </div>
+
+    <!-- Gift Slide -->
+    <div class="slide" id="slide3">
+        <h2>Your Gift! 🎁</h2>
+        <img src="gift-image.png" alt="Gift" style="max-width: 80%; margin-top: 20px;">
+        <button id="backToSecond">Back to Letter</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
