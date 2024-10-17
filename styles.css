@@ -244,3 +244,34 @@ body::before {
     opacity: 0.1;
     pointer-events: none;
 }
+
+
+/* Sparkle effect when the gift button is clicked */
+@keyframes sparkle {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}
+
+/* Sparkle particle style */
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  animation: sparkle 0.8s ease-out forwards;
+}
+/* Heart falling animation */
+@keyframes heartFall {
+  0% { top: -10%; opacity: 1; transform: scale(0.5); }
+  100% { top: 100%; opacity: 0; transform: scale(1); }
+}
+
+/* Heart style for the rain */
+.heart {
+  position: fixed;
+  top: -10%;  /* Start above the screen */
+  font-size: 2rem;  /* Size of the heart emoji */
+  opacity: 0;  /* Hidden initially */
+  animation: heartFall 3s linear infinite;  /* Animation properties */
+}
