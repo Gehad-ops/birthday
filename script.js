@@ -1,3 +1,16 @@
+//
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("backgroundMusic");
+
+    // Attempt to play audio after a user interaction (like clicking the "Next" button)
+    document.getElementById("nextButton").addEventListener("click", function() {
+        audio.play().catch(error => {
+            console.error("Error playing audio:", error);
+        });
+    });
+});
+
+
 // Slide transition for Next button
 document.getElementById("nextButton").addEventListener("click", function () {
     document.getElementById("slide1").classList.add("fade-out");
