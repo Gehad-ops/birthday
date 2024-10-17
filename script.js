@@ -89,8 +89,14 @@ const countdownFunction = setInterval(function () {
     }
 }, 1000);
 
+let heartInterval; // Declare the variable to store the interval
+
 // Slide transition for Next button
 document.getElementById("nextButton").addEventListener("click", function () {
+    // Start creating hearts at an interval (every 300ms)
+    heartInterval = setInterval(createHeartRain, 300);
+    
+    // Transition to slide 2
     document.getElementById("slide1").classList.add("fade-out");
 
     setTimeout(() => {
@@ -99,6 +105,12 @@ document.getElementById("nextButton").addEventListener("click", function () {
         document.getElementById("slide2").classList.remove("fade-out");
         document.getElementById("slide2").classList.add("fade-in");
     }, 500);
+});
+
+// Ensure hearts continue to fall while on slide 2
+document.getElementById("giftButton").addEventListener("click", function () {
+    // This keeps the heart interval going
+    // You can choose to keep this or just use the one in the nextButton listener
 });
 
 // Function to create heart rain
@@ -113,7 +125,16 @@ function createHeartRain() {
     // Add the heart to the document
     document.body.appendChild(heart);
 
-    // Remove the heart after its fall (3s)
+    // Animate heart falling
+    heart.animate([
+        { transform: 'translateY(0)' },
+        { transform: 'translateY(100vh)' }
+    ], {
+        duration: 3000, // Duration of the fall
+        easing: 'ease-in'
+    });
+
+    // Remove the heart after its fall
     setTimeout(() => heart.remove(), 3000);
 }
 
